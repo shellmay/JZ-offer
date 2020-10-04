@@ -5,25 +5,12 @@
 #         self.left = None
 #         self.right = None
 class Solution:
-    # 返回镜像树的根节点
-    def Mirror(self, root):
+    def HasSubtree(self, pRoot1, pRoot2):
         # write code here
-        cur=root
-        self.i(root)
-        return cur
-
-    def i(self,root):
-        if root.right!=None and root.left!=None:
-            root.left,root.right=root.right,root.left
-            self.i(root.left)
-            self.i(root.right)
-        if root.right!=None and root.left==None:
-            root.left,root.right=root.right,None
-            self.i(root.left)
-        if root.right==None and root.left!=None:
-            root.left,root.right=None,root.left
-            self.i(root.right)
-        if root.right==None and root.left==None:
-            return
-
-
+        def issutree(p1,p2):
+            if not p2:
+                return True
+            if not p1 or p1.val != p2.val:
+                return False
+            return issutree(p1.left,p2.left) and issutree(p1.right,p2.right)
+        return bool(pRoot1 and pRoot2) and (issutree(pRoot1,pRoot2) or self.HasSubtree(pRoot1.left,pRoot2) or self.HasSubtree(pRoot1.right,pRoot2))
