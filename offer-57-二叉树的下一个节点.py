@@ -5,6 +5,9 @@
 #         self.left = None
 #         self.right = None
 #         self.next = None
+#两种情况：
+#1、当该结点的右子树存在时，寻找右子树的最左边的左子树，否则就是右子树
+#2、当该结点的右子树不存在时，寻找第一个以该子树为左子树的根
 class Solution:
     def GetNext(self, pNode):
         # write code here
