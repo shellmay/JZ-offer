@@ -10,6 +10,7 @@ class Solution:
         # write code here
         if root==None:
             return
+        #不断地交换左右子树即可
         root.left,root.right=root.right,root.left
         self.Mirror(root.left)
         self.Mirror(root.right)
