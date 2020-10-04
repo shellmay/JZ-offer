@@ -5,6 +5,7 @@
 #         self.left = None
 #         self.right = None
 import collections
+#利用一个双向列表来操作，先进先出
 class Solution:
     # 返回从上到下每个节点值列表，例：[1,2,3]
     def PrintFromTopToBottom(self, root):
