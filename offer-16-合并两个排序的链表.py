@@ -5,6 +5,7 @@ class ListNode:
          self.next = None
 #直接循环和递归
 class Solution:
+     #直接循环
     def Merge(self, pHead1, pHead2):
         #伪造一个头结点
         merge=cur=ListNode(0)
@@ -23,7 +24,7 @@ class Solution:
         return merge.next
     
     
-    
+    #递归
     #递归时判断小的值，递归回溯时从后往前接入链表
     def Merge(self, pHead1, pHead2):
         if not pHead1:return pHead2
