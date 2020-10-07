@@ -4,29 +4,21 @@
 #         self.val = x
 #         self.next = None
 class Solution:
+    #快慢指针
     def deleteDuplication(self, pHead):
-        # write code here
-
-        if not pHead:
-            return pHead
-        head=ListNode(-1)
-        p=head
-        p.next=pHead
-        cur=pHead
-        while cur and cur.next:
-            if cur.val!=cur.next.val:
-                cur=cur.next
-                p=p.next
+        dummy=ListNode(-1)
+        dummy.next=pHead
+        low=dummy
+        faster=pHead
+        while faster:
+            if faster.val==low.val:
+                faster=faster.next
+                low.next=faster
             else:
-                val=cur.val
-                while cur and cur.val==val:
-                    cur=cur.next
-                p.next=cur
-        return head.next
-
-
-
-
-        return pHead
+                low=low.next
+                faster=faster.next
+        return dummy.next
+    #递归
+    
 
 
